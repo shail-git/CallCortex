@@ -1,0 +1,17 @@
+a img[alt="watermark"] {
+  display: none;
+}
+
+
+#root > div.MuiBox-root.css-144sd5e > div > header > div > div.MuiStack-root.css-12hxhao > img {
+    display: none;
+  }
+
+a[href*='https://github.com/Chainlit/chainlit']
+{
+  visibility: hidden;
+}
+
+#root > div.MuiBox-root.css-144sd5e > div > div > div > div.MuiBox-root.css-17anmg8 > div.MuiBox-root.css-s4jwr4 > div.MuiBox-root.css-0 > div > div > div > div.MuiInputAdornment-root.MuiInputAdornment-positionStart.MuiInputAdornment-standard.MuiInputAdornment-sizeMedium.css-1tudgoq > span:nth-child(3){
+    display: none;
+}
