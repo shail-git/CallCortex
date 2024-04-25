@@ -16,8 +16,8 @@ def test_submit_question_and_documents():
     assert response.status_code == 200
     assert response.json() == {"message": "Submitted successfully"}
 
-def test_get_latest_question_and_facts():
-    response = requests.get(f"{base_url}/get_latest_question_and_facts")
+def test_get_question_and_facts():
+    response = requests.get(f"{base_url}/get_question_and_facts")
     assert response.status_code == 200
     data = response.json()
     assert "question" in data
@@ -26,5 +26,5 @@ def test_get_latest_question_and_facts():
 
 if __name__ == "__main__":
     test_submit_question_and_documents()
-    test_get_latest_question_and_facts()
+    test_get_question_and_facts()
     print("All tests passed successfully.")

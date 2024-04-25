@@ -15,7 +15,7 @@ async def main(message: cl.Message):
     
     response = requests.post(f"{base_url}/submit_question_and_documents", json=data)    
     if response.status_code == 200:
-        get_response = requests.get(f"{base_url}/get_latest_question_and_facts")
+        get_response = requests.get(f"{base_url}/get_question_and_facts")
         
         if get_response.status_code == 200:
             get_data = get_response.json()
@@ -24,17 +24,17 @@ async def main(message: cl.Message):
                 await cl.Message(content="Your Request is being Processed, Give it a few seconds").send()
                 tries += 1
                 print('retrying')
-                if (get_data['status'] == 'done') or tries >= 3:
-                    break
                 
-                get_response = requests.get(f"{base_url}/get_latest_question_and_facts")
+                get_response = requests.get(f"{base_url}/get_question_and_facts")
                 if get_response.status_code == 200:
                     get_data = get_response.json()
                     print(get_data)
+                    if (get_data['status'] == 'done') or tries >= 3:
+                        break
                 else:
                     print(get_response)
                     break
-                time.sleep(10)
+                time.sleep(15)
         
             if get_data['status'] == 'processing':
                 await cl.Message(content="Error: max tries reached, please try after some time").send()
@@ -43,4 +43,4 @@ async def main(message: cl.Message):
                 await cl.Message(content=f"Here are the Facts:\n {facts}").send()
         else:
             print('failed')
-            await cl.Message(content=f"Some error occured: \n{get_response}").send()
+            await cl.Message(content=f"Some error occured: \nPlease try again later").send()
