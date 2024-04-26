@@ -9,5 +9,3 @@
 ![Step 3](https://raw.githubusercontent.com/shail-git/CallCortex/main/chat_ui_server/image-1.png)
 
 #### 3. Get the Facts!
-
-**Try It Now! 👇**

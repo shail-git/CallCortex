@@ -2,11 +2,6 @@ a img[alt="watermark"] {
   display: none;
 }
 
-
-#root > div.MuiBox-root.css-144sd5e > div > header > div > div.MuiStack-root.css-12hxhao > img {
-    display: none;
-  }
-
 a[href*='https://github.com/Chainlit/chainlit']
 {
   visibility: hidden;

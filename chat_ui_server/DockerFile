@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 COPY chat_ui.py .
 
 # Expose port
-EXPOSE 8001
+EXPOSE 80
 
 # Run UI server
-CMD ["chainlit", "run", "chat_ui", "-w"]
+CMD ["chainlit", "run", "chat_ui.py", "-w", "--host", "0.0.0.0", "--port", "80"]

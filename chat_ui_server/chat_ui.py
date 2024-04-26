@@ -21,25 +21,24 @@ async def main(message: cl.Message):
             get_data = get_response.json()
             tries = 0
             while True:
-                await cl.Message(content="Your Request is being Processed, Give it a few seconds").send()
-                tries += 1
                 print('retrying')
-                
                 get_response = requests.get(f"{base_url}/get_question_and_facts")
                 if get_response.status_code == 200:
                     get_data = get_response.json()
                     print(get_data)
-                    if (get_data['status'] == 'done') or tries >= 3:
+                    if (get_data['status'] == 'done') or tries == 5:
                         break
                 else:
                     print(get_response)
                     break
+                await cl.Message(content="Your Request is being Processed, Give it a few seconds").send()
+                tries += 1
                 time.sleep(15)
         
             if get_data['status'] == 'processing':
                 await cl.Message(content="Error: max tries reached, please try after some time").send()
             elif get_data['status'] == 'done':
-                facts = "\n- ".join(get_data['facts'])
+                facts = '- '+"\n- ".join(get_data['facts'])
                 await cl.Message(content=f"Here are the Facts:\n {facts}").send()
         else:
             print('failed')

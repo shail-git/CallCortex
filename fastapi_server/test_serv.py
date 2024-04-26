@@ -3,7 +3,7 @@ import requests
 base_url = "http://127.0.0.1:5000"
 
 test_data = {
-  "question": "What is our pricing model?",
+  "question": "What were the main discussions and decisions?",
   "documents": [
       "https://storage.googleapis.com/cleric-assignment-call-logs/call_log_20240314_104111.txt",
       "https://storage.googleapis.com/cleric-assignment-call-logs/call_log_20240315_104111.txt",
