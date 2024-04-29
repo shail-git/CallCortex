@@ -1,7 +1,6 @@
 from crewai import Agent, Task, Crew, Process
 from textwrap import dedent
 from langchain_openai import ChatOpenAI
-# from chatwrapper import SimpleChatWrapper
 from textwrap import dedent
 from dotenv import load_dotenv
 load_dotenv()
@@ -149,6 +148,7 @@ class FactExtractionCrew:
 
 
   def run(self, question, calls):
+    # assign agents for tasks and kickoff the processing
     tasks = ExreactionTasks()
     map_task = tasks.map_task(
       self.Analyst_agent,
@@ -163,11 +163,10 @@ class FactExtractionCrew:
     crew = Crew(
       agents=[self.Analyst_agent, self.reducer_expert],
       tasks=[map_task, reduce_task],
-      # agents = [self.Analyst_agent],
-      # tasks = [map_task],
       process= Process.sequential,
       verbose=True
     )
 
     result = crew.kickoff()
+    # convert string to list and return
     return eval(result)
