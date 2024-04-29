@@ -22,7 +22,7 @@ async def main(message: cl.Message):
             tries = 0
             while True:
                 print('retrying')
-                get_response = requests.get(f"{base_url}/get_question_and_facts")
+                get_response = cl.make_async(requests.get(f"{base_url}/get_question_and_facts"))
                 if get_response.status_code == 200:
                     get_data = get_response.json()
                     print(get_data)
@@ -33,7 +33,7 @@ async def main(message: cl.Message):
                     break
                 await cl.Message(content="Your Request is being Processed, Give it a few seconds").send()
                 tries += 1
-                time.sleep(15)
+                time.sleep(10)
         
             if get_data['status'] == 'processing':
                 await cl.Message(content="Error: max tries reached, please try after some time").send()
