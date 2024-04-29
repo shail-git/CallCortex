@@ -26,7 +26,7 @@ async def main(message: cl.Message):
                 if get_response.status_code == 200:
                     get_data = get_response.json()
                     print(get_data)
-                    if (get_data['status'] == 'done') or tries == 5:
+                    if (get_data['status'] == 'done') or tries >= 5:
                         break
                 else:
                     print(get_response)
