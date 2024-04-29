@@ -11,6 +11,7 @@ embedding = OpenAIEmbeddings(model="text-embedding-ada-002")
 compressor = LLMLinguaCompressor(model_name="lgaalves/gpt2-dolly", device_map="cpu")
 stringify_docs = lambda docs: f"\n\n".join([f"Call Log {i+1}:\n\n" + d.page_content for i, d in enumerate(docs)])
 
+# retrive chunks for relevant text and compress prompts by removing useless tokens.  
 def retrive_and_compress(query,document_list): 
     documents =  UnstructuredURLLoader(document_list).load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)

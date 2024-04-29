@@ -12,10 +12,10 @@ app = FastAPI()
 DATABASE_URL = "sqlite:///./callcortex-cleric-test.db"
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-Base = declarative_base()
+# crew class object
 fact_extraction_crew = FactExtractionCrew()
-
+# db models
+Base = declarative_base()
 class Question(Base):
     __tablename__ = "questions"
     id = Column(Integer, primary_key=True, index=True)
@@ -74,7 +74,7 @@ def get_facts_with_AI(question_id: int, db: Session):
         facts = fact_extraction_crew.run(question.question, compressed_docs)
         end = time.time()
         print(f'facts: \n{facts} \nType:{type(facts)} \nTime: {end-start}')
-        
+        # update db 
         ref_doc_ids = build_fact_ref(question.id, db)
         for fact in facts:
             fact_obj = Fact(question_id=question.id, fact=fact, ref_doc_ids=ref_doc_ids)
@@ -144,7 +144,7 @@ async def get_latest_question_and_facts(db: Session = Depends(get_db)):
     latest_question = db.query(Question).order_by(desc(Question.id)).first()
     if not latest_question:
         raise HTTPException(status_code=404, detail="No questions found")
-
+    # get facts for the current question 
     curr_doc_ref = build_fact_ref(latest_question.id, db)
     facts = db.query(Fact).filter(Fact.ref_doc_ids == curr_doc_ref).order_by(Fact.id).all()
     facts_list = [fact.fact for fact in facts]

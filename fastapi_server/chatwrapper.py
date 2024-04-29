@@ -1,3 +1,6 @@
+# creating fake proxy to open AI server to get generated prompts
+# made for manual resting of crew AI components
+# not used in main implementation
 """OpenAI chat wrapper."""
 from __future__ import annotations
 

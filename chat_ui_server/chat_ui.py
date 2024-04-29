@@ -3,7 +3,7 @@ import requests
 import time
 
 base_url = "http://127.0.0.1:5000"
-
+# chainlit user interface
 @cl.on_message
 async def main(message: cl.Message):
     files = None
@@ -20,6 +20,7 @@ async def main(message: cl.Message):
         if get_response.status_code == 200:
             get_data = get_response.json()
             tries = 0
+            # loop to check for updates periodically anf respond to chat
             while True:
                 print('retrying')
                 get_response = await cl.make_async(requests.get)(f"{base_url}/get_question_and_facts")

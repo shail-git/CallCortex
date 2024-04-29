@@ -4,7 +4,7 @@ from langchain_openai import ChatOpenAI
 from textwrap import dedent
 from dotenv import load_dotenv
 load_dotenv()
-
+#  create tasks and agents and tell them their duties
 class ExreactionTasks():
     def map_task(self, agent, question, calls):
         return Task(description=dedent(f"""
