@@ -22,11 +22,11 @@ async def main(message: cl.Message):
             tries = 0
             while True:
                 print('retrying')
-                get_response = await cl.make_async(requests.get(f"{base_url}/get_question_and_facts"))
+                get_response = await cl.make_async(requests.get)(f"{base_url}/get_question_and_facts")
                 if get_response.status_code == 200:
                     get_data = get_response.json()
                     print(get_data)
-                    if (get_data['status'] == 'done') or tries >= 5:
+                    if (get_data['status'] == 'done') or tries >= 6:
                         break
                 else:
                     print(get_response)
