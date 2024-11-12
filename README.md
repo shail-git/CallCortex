@@ -16,7 +16,7 @@ At the core of CallCortex lies the "Agentic Method," that employs 2 collaborativ
 
 CallCortex incorporates several key components to enhance its functionality and efficiency:
 
-- **SQL Database:** A SQL database is utilized to store extracted facts, questions, and document links, enabling efficient retrieval and reducing redundant processing when no new data is added.
+- **SQL Database:** A SQL database is utilized to store extracted facts, questions, and document links, enabling efficient retrieval and reducing redundant processing when no new data is added   d.
 
 - **Prompt Compression:** LLMingua is employed to compress prompts by removing unnecessary tokens, optimizing API call costs and improving performance.
 
