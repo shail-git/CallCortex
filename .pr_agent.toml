@@ -1,7 +1,7 @@
 [config]
-model="anthropic/claude-3-5-sonnet-20241022"
-model_turbo="anthropic/claude-3-5-sonnet-20241022"
-fallback_models=["anthropic/claude-3-5-sonnet-20241022"]
+model="anthropic/claude-3-5-sonnet"
+model_turbo="anthropic/claude-3-5-sonnet"
+fallback_models=["anthropic/claude-3-5-sonnet"]
 temperature = 0
 custom_model_max_tokens = 100000
 verbosity_level = 2
