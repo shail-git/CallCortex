@@ -12,7 +12,7 @@ At the core of CallCortex lies the "Agentic Method," that employs 2 collaborativ
 
 - **Fact Extraction Agent:** This agent is responsible for meticulously combing through meeting logs and extracting all relevant facts that might contribute to answering the user's question.
 
-- **Fact Refinement Agent:** The role of this agent is to analyze the extracted facts, filter out any outdated or redundant information, and ensure that the final answer provided to the user is accurate, concise, and relevant.
+- **Fact Refinement Agent:** The role of this agent is to analyze the extracted facts, filter out any outdated or redundant information, and ensure that the final answer provided to the user is accurate, concise, and relevant.111
 
 CallCortex incorporates several key components to enhance its functionality and efficiency:
 
