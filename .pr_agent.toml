@@ -1,11 +1,3 @@
-[config]
-model="anthropic/claude-3-5-sonnet"
-model_turbo="anthropic/claude-3-5-sonnet"
-fallback_models=["anthropic/claude-3-5-sonnet"]
-temperature = 0
-custom_model_max_tokens = 100000
-verbosity_level = 2
-
 [pr_reviewer]
 require_tests_review = false
 
